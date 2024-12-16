@@ -44,8 +44,23 @@ import rating_starts from './rating_starts.png'
 import add_icon_white from './add_icon_white.png'
 import add_icon_green from './add_icon_green.png'
 import remove_icon_red from './remove_icon_red.png'
+import facebook_icon from './facebook_icon.png'
+import linkedin_icon from './linkedin_icon.png'
+import twitter_icon from './twitter_icon.png'
+import app_store from './app_store.png'
+import play_store from './play_store.png'
 
 export {rating_starts};
+
+export {app_store};
+
+export {play_store};
+
+export {facebook_icon};
+
+export {linkedin_icon};
+
+export {twitter_icon};
 
 export {add_icon_green};
 
@@ -124,7 +139,7 @@ export const food_list = [
         image: food_9,
         price: 1100,
         description: "Creamy ice cream with a sweet ripple of syrup.",
-        category: "Ice_Cream",
+        category: "Deserts",
     },
     {
         _id: "10",
@@ -132,7 +147,7 @@ export const food_list = [
         image: food_10,
         price: 1100,
         description: "A delightful mix of fruits blended into creamy ice cream.",
-        category: "Ice_Cream",
+        category: "Deserts",
     },
     {
         _id: "11",
@@ -140,7 +155,7 @@ export const food_list = [
         image: food_11,
         price: 1100,
         description: "Ice cream served in a charming jar with layers of flavors.",
-        category: "Ice_Cream",
+        category: "Deserts",
     },
     {
         _id: "12",
@@ -148,7 +163,7 @@ export const food_list = [
         image: food_12,
         price: 1100,
         description: "Classic creamy vanilla ice cream with a rich taste.",
-        category: "Ice_Cream",
+        category: "Deserts",
     },
     {
         _id: "13",
@@ -220,7 +235,7 @@ export const food_list = [
         image: food_21,
         price: 1100,
         description: "Savory mushrooms sautéed with garlic and herbs.",
-        category: "Salad",
+        category: "Pure veg",
     },
     {
         _id: "22",
@@ -228,7 +243,7 @@ export const food_list = [
         image: food_22,
         price: 1100,
         description: "Crispy and golden fried cauliflower bites.",
-        category: "Salad",
+        category: "Pure veg",
     },
     {
         _id: "23",
@@ -236,7 +251,7 @@ export const food_list = [
         image: food_23,
         price: 1100,
         description: "Fragrant rice dish with a mix of fresh vegetables.",
-        category: "Salad",
+        category: "Pure veg",
     },
     {
         _id: "24",
@@ -244,7 +259,7 @@ export const food_list = [
         image: food_24,
         price: 1100,
         description: "Delightful combination of rice and zucchini cooked to perfection.",
-        category: "Salad",
+        category: "Pure veg",
     },
     {
         _id: "25",
