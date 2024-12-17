@@ -12,7 +12,10 @@ function Footer() {
     <div className="footer" id="footer">
       <div className="footer-content">
         <div className="footer-content-left">
-          <img className="footer-logo" src={logo} alt="" />
+          <a href="/">
+            <img className="footer-logo" src={logo} alt="Go to Navbar" />
+          </a>
+
           <p>
             Delivering excellence with every meal. Explore our menu for a
             delightful dining experience. Quality, taste, and satisfaction

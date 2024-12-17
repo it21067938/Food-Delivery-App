@@ -1,41 +1,105 @@
-.header{
+.header {
     height: 34vw;
     margin: 10px auto;
-    background: url('../../assets/header.jpg') no-repeat;
+    background: url('../../assets/header.jpg') no-repeat center center;
     background-size: cover;
     position: relative;
     border-radius: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
 
-.header-contents{
-    position: absolute;
+.header-contents {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     gap: 1.5vw;
     max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
+    margin-bottom: 10%;
+    margin-left: 6vw;
     animation: fadeIn 3s;
 }
 
-.header-contents h2{
+.header-contents h2 {
     color: white;
     font-weight: 500;
-    font-size: max(60px);
+    font-size: clamp(36px, 5vw, 60px); /* Responsive font size */
 }
 
-.header-contents p{
+.header-contents p {
     color: white;
-    font-size: 1vw;
+    font-size: clamp(12px, 1vw, 16px); /* Responsive font size */
+    line-height: 1.5;
 }
 
-.header-contents button{
+.header-contents button {
     border: none;
     color: #747474;
     font-weight: 500;
-    padding: 1vw 2.3vw;
+    padding: 0.8vw 2vw;
     background-color: white;
-    font-size: max(1vw, 13px);
+    font-size: clamp(12px, 1vw, 16px); /* Responsive font size */
     border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.header-contents button:hover {
+    background-color: #f8f8f8;
+    transform: scale(1.05);
+}
+
+/* Medium Screen Adjustments */
+@media (max-width: 1050px) {
+    .header {
+        height: 40vw; /* Adjust height for smaller screens */
+    }
+
+    .header-contents {
+        max-width: 60%;
+        gap: 1vw;
+    }
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 750px) {
+    .header {
+        height: 50vw; /* Further adjust height */
+    }
+
+    .header-contents {
+        max-width: 85%;
+        margin-left: 5%;
+        gap: 1.2rem;
+    }
+
+    .header-contents h2 {
+        font-size: clamp(24px, 5vw, 40px); /* Adjust heading size */
+    }
+
+    .header-contents p {
+        display: none; /* Hide paragraph on smaller screens */
+    }
+
+    .header-contents button {
+        padding: 10px 20px; /* Adjust button padding */
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 500px) {
+    .header {
+        height: 60vw; /* Adjust height for very small screens */
+    }
+
+    .header-contents {
+        max-width: 90%;
+        margin-left: 5%;
+        gap: 1rem;
+    }
+
+    .header-contents button {
+        padding: 8px 16px; /* Compact button */
+    }
 }
