@@ -28,7 +28,13 @@ app.listen(PORT, () => {
     console.log(`Server is up and running on port: ${PORT} 🚀🚀🚀`);
 });
 
+app.get("/", (req, res) => {
+    res.send("API work")
+})
 
-import userRouter from "./routes/User.js";
-app.use("/user", userRouter);
 
+
+//API's
+import foodRouter from "./routes/FoodRoute.js";
+app.use("/api/food", foodRouter);
+app.use("/images", express.static('uploads'))
