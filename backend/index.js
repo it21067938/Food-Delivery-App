@@ -38,3 +38,9 @@ app.get("/", (req, res) => {
 import foodRouter from "./routes/FoodRoute.js";
 app.use("/api/food", foodRouter);
 app.use("/images", express.static('uploads'))
+
+import userRouter from "./routes/UserRoute.js";
+app.use("/api/user", userRouter);
+
+import cartRoute from "./routes/CartRoute.js";
+app.use("/api/cart", cartRoute);

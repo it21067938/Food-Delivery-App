@@ -50,6 +50,21 @@ import twitter_icon from './twitter_icon.png'
 import app_store from './app_store.png'
 import play_store from './play_store.png'
 import cross_icon from './cross_icon.png'
+import show_password from './show-password.svg'
+import hide_password from './hide-password.svg'
+import profile_icon from './profile_icon.png'
+import bag_icon from './bag_icon.png'
+import logout_icon from './logout_icon.png'
+
+export{bag_icon};
+
+export{logout_icon};
+
+export{profile_icon};
+
+export{show_password};
+
+export {hide_password};
 
 export{cross_icon};
 

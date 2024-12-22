@@ -72,3 +72,15 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+.eye{
+    margin-left: 91%;
+    margin-top: -12.5%;
+    width: 5%;
+}
+
+@media (max-width: 450px){
+    .eye{
+        display: none;
+    }
+}

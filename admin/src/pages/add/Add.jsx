@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./Add.css";
 import { assets } from "../../assets/assets";
-import axios from "axios"
-import { toast } from 'react-toastify';
+import axios from "axios";
+import { toast } from "react-toastify";
 
-function Add() {
-
-  const url = "http://localhost:8050"
+const Add = ({url}) => {
 
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
@@ -21,27 +19,28 @@ function Add() {
     setData((data) => ({ ...data, [name]: value }));
   };
 
-  const onSubmitHandler = async(event) => {
+  const onSubmitHandler = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append("name", data.name)
-    formData.append("description", data.description)
-    formData.append("category", data.category)
-    formData.append("price", Number(data.price))
-    formData.append("image", image)
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("category", data.category);
+    formData.append("price", Number(data.price));
+    formData.append("image", image);
     const response = await axios.post(`${url}/api/food/add`, formData);
-    if (response.data.success){
+    if (response.data.success) {
       setData({
         name: "",
         description: "",
         category: "Salad",
         price: "",
-      })
-      setImage(false)
-      toast.success(response.data.message)
+      });
+      setImage(false);
+      toast.success(response.data.message);
+    } else {
+      toast.error(response.data.message);
     }
-    toast.error(response.data.message)
-  }
+  };
 
   return (
     <div className="add">
