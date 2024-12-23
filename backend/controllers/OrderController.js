@@ -1,13 +1,14 @@
 import OrderModel from "../models/OrderModel.js";
 import UserModel from "../models/UserModel.js";
 import Stripe from "stripe";
+import dotenv from "dotenv";
 
+dotenv.config();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 //placing user order for frontend
 const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:3000";
-  
 
   try {
     const newOrder = new OrderModel({
@@ -53,4 +54,55 @@ const placeOrder = async (req, res) => {
   }
 };
 
-export { placeOrder };
+const verifyOrder = async (req, res) => {
+  const { orderId, success } = req.body;
+  try {
+    if (success == "true") {
+      await OrderModel.findByIdAndUpdate(orderId, { payment: true });
+      res.json({ success: true, message: "Paid" });
+    } else {
+      await OrderModel.findByIdAndDelete(orderId);
+      res.json({ success: false, message: "Not Paid" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+//User order pass to the frontend
+const userOrder = async (req, res) => {
+  try {
+    const orders = await OrderModel.find({ userId: req.body.userId });
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+//Listing orders for admin panel
+const listOrders = async (req, res) => {
+  try {
+    const orders = await OrderModel.find({});
+    res.json({ success: true, data: orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+//api for update the order statue in admin side
+const updateStatus = async (req, res) => {
+  try {
+    await OrderModel.findByIdAndUpdate(req.body.orderId, {
+      status: req.body.status,
+    });
+    res.json({ success: true, message: "Status Updates" });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: "Error" });
+  }
+};
+
+export { placeOrder, verifyOrder, userOrder, listOrders, updateStatus };
