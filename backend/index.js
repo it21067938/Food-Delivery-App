@@ -44,3 +44,6 @@ app.use("/api/user", userRouter);
 
 import cartRoute from "./routes/CartRoute.js";
 app.use("/api/cart", cartRoute);
+
+import orderRoute from './routes/OrderRoute.js';
+app.use("/api/order", orderRoute);
